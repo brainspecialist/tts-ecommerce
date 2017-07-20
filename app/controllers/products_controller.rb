@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :set_categories, only:[:new, :edit]
+  before_action :authenticate_user!, except: [:show]
+  before_action :redirect_unless_admin, except: [:show]
 
   # GET /products
   # GET /products.json

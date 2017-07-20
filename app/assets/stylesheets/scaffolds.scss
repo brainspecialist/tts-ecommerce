@@ -32,6 +32,14 @@ a {
   }
 }
 
+.white-link {
+  color: white;
+
+  &:visited {
+    color: white;
+  }
+}
+
 th {
   padding-bottom: 5px;
 }

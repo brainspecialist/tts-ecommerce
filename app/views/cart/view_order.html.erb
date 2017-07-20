@@ -1,0 +1,31 @@
+<h2>My Cart</h2>
+<% unless @line_items.nil? %>
+	<div class="col-md-3 pull-right">
+	  <div class="well">
+	  	<p>Order total:</p>
+	  	<p><%= number_to_currency @line_items.sum(:line_item_total) %></p>
+	  	<%= link_to "Proceed to Checkout?", checkout_path, class: "btn btn-success white-link" %>
+	  </div>
+	</div>
+	<div>
+	  <% @line_items.each do |line_item| %>
+	      <div class="col-md-9">
+	        <div class="well">
+	            
+		        <ul class="list-inline">
+		          <li><%= image_tag line_item.product.image.url, size: 90, class: "img-thumbnail" %></li>
+		    	  <li><%= line_item.product.name %></li>
+		    	  <li><%= number_to_currency line_item.product.price %></li>
+		    	  <li>Qty: <%= line_item.quantity %></li>
+		    	  <li>Subtotal: <%= number_to_currency line_item.line_item_total %></li>
+		    	  <li>
+		    	    <%= button_to 'Remove', line_item, method: :delete, class: 'btn btn-warning' %>
+		    	 </ul>
+		    </div>
+		  </div>
+	  <% end %>
+	</div>
+<% else %>
+	<h2>Your cart is currently empty!</h2>
+<% end %>
+

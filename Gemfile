@@ -40,6 +40,9 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'b
 gem 'carrierwave'
 gem 'cancancan'
 gem 'hirb'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
+gem 'certified'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
